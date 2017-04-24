@@ -8,7 +8,7 @@ if __name__ == '__main__':
     src_api_key = sys.argv[2]
     src_project_key = sys.argv[3]
     dst_target = 'esa.io'
-    dst_base_url = 'https://api.esa.io/v1/teams/%s/posts' team
+    dst_base_url = 'https://api.esa.io/v1/teams/%s/posts' % team
     dst_api_key = sys.argv[4]
     dst_path = sys.argv[5]
 
