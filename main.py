@@ -11,10 +11,6 @@ if __name__ == '__main__':
     dst_obj = WebApi(dst_target, dst_base_url, dst_api_key)
     data_list = src_obj.read_data_list({'projectIdOrKey': src_project_key})
     for data in data_list:
-        dst_obj.write_data({
-            'post': {
-                'name': '%s/%s' % (dst_path, data['name']),
-                'body_md': src_obj.read_data(data['id'])['content'],
-                'wip': False,
-            }
-        })
+        dst_obj.write_data(
+            '%s/%s' % (dst_path, data['name']),
+            src_obj.read_data(data['id'])['content'])

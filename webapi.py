@@ -29,8 +29,22 @@ class WebApi():
         r = requests.get('%s/%s' % (self.base_url, data_id), params=params)
         return r.json()
 
-    def write_data(self, jsonobj, params={}):
+    def _get_obj_to_write(self, name, content):
+        if self.target == 'backlog':
+            raise Exception('NOT SUPPORTED WRITE DATA: %s' % self.target)
+        elif self.target == 'esa.io':
+            jsonobj = {
+                'post': {
+                    'name': name,
+                    'body_md': content,
+                    'wip': False,
+                }
+            }
+        return jsonobj
+
+    def write_data(self, name, content, params={}):
         params = self._add_api_key(params)
+        jsonobj = self._get_obj_to_write(name, content)
         r = requests.post(self.base_url, json=jsonobj, params=params)
         return r.status_code
 
