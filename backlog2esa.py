@@ -3,11 +3,11 @@ from webapi import WebApi
 
 if __name__ == '__main__':
     src_target = 'backlog'
-    src_base_url = 'https://soinn.backlog.jp/api/v2/wikis'
+    src_base_url = 'https://XXX.backlog.jp/api/v2/wikis'
     src_api_key = sys.argv[1]
     src_project_key = sys.argv[2]
     dst_target = 'esa.io'
-    dst_base_url = 'https://api.esa.io/v1/teams/soinn/posts'
+    dst_base_url = 'https://api.esa.io/v1/teams/XXX/posts'
     dst_api_key = sys.argv[3]
     dst_path = sys.argv[4]
 
