@@ -48,6 +48,11 @@ class WebApi():
         r = requests.post(self.base_url, json=jsonobj, params=params)
         return r.status_code
 
+    def delete_data(self, data_id, params={}):
+        params = self._add_api_key(params)
+        r = requests.delete('%s/%s' % (self.base_url, data_id), params=params)
+        return r.status_code
+
 
 if __name__ == '__main__':
     pass
